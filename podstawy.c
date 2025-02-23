@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-//Takie troszkę upośledzone ale logiczne, dajesz typ w "" i przecinek a potem dajesz jakie zmienne
+//A bit retarted but logical, to print you give type in "" and comma after and then var
 void zmienne() {
     int number = 1;
     char character = 'A';
@@ -36,7 +36,7 @@ void comparing() {
     printf("1 <= 1: %d\n", 1 <= 1);
 }
 
-//W sumie jak zawsze/wszędzie
+//Like everywere else
 void IfElseItd() {
     int a = 10;
     int b = 20;
@@ -54,7 +54,7 @@ void IfElseItd() {
 
     printf("Skruty\n");
 
-    //Skruty
+    //Shortcuts
     //variable = (condition) ? expressionTrue : expressionFalse;
     (a > b && a < c) ? printf("a > b && a < c") : printf("a > b && a > c");
 }
@@ -91,32 +91,30 @@ void SwitchCase() {
     }
 }
 
-//Też normalne
+//Normal too
 void WhileLoops() {
     int x = 1;
     while (5 >= x) {
         printf("%d\n", x);
         x++;
     }
-
-    //od-while nie będę robił bo po co to jest
 }
 
-//Normalne
+//Normal
 void ForLoops() {
     for (int i = 1; i <= 5; i++) {
         printf("%d\n", i);
     }
 }
 
-//Normalne
+//Normal
 void ArraysyIStringi() {
-    //Stringi w C to po prostu arrayka charów(character)
+    //Strings in C are yust array of chars
     char String[] = "Hello World!";
-    //I printujesz %s
+    //And you print by %s
     printf("\n%s\n\n", String);
 
-    //List nie ma bo array może być dynamiczny
+    //There's no list couse arrays are dynamic
     int arrr[] = {1, 2, 3, 4, 5};
     for (int i = 0; i < sizeof(arrr) / sizeof(arrr[0]); i++) {
         printf("Arrr = %d\n", arrr[i]);
@@ -128,7 +126,7 @@ void ArraysyIStringi() {
     }
 }
 
-//Normalne
+//Normal
 void Matrix() {
     int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
@@ -140,11 +138,51 @@ void Matrix() {
     }
 }
 
+//Normal
 void Input() {
+    int a;
+    int b;
+    printf("daj a: ");
 
+    //Simple but you have to give & at begining
+    scanf("%d", &a);
+    printf("a = %d\n", a);
+
+    //If you give two ot one input It will make it one by one
+    printf("daj a i b: ");
+    scanf("%d %d", &a, &b);
+    printf("a = %d b = %d\n", a, b);
+
+    //In strings you don't give & but you must specyfy size of strings and it save's only one word
+    char stringi[3];
+    printf("daj string: ");
+    scanf("%s", stringi);
+    printf("string = %s\n", stringi);
+
+    //For more than 2 words use fgets and give getchar() before fgets
+    char stringifull[30];
+    printf("give string:\n");
+    getchar();
+    fgets(stringifull, sizeof(stringifull), stdin);
+    printf("string = %s\n", stringifull);
 }
 
-//Normalne
+void MemoryAdress() {
+    int a;
+    printf("%p\n", &a);
+}
+
+//!!!!!!!!!!!!
+void Pointers() {
+    int age = 17; //makes int age
+    int *pAge = &age; //makes pointer thats stores adress of age
+
+    printf("%d\n", age); //Outs value of age (17)
+    printf("%p\n", &age); //Outs adres of age
+    printf("%p\n", pAge); //Outs mem adress of age by pointer
+}
+
+//Normal
 void printy() {
     printf("Hello World!\n");
 }
