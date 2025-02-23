@@ -59,7 +59,7 @@ void IfElseItd() {
     (a > b && a < c) ? printf("a > b && a < c") : printf("a > b && a > c");
 }
 
-//Nie lubie tego ale normalne
+//Normal
 void SwitchCase() {
     int a = 4;
 
