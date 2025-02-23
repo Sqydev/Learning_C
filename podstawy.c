@@ -16,7 +16,7 @@ void zmienne() {
     printf("Int = %d, Float = %f, Char = %c, Bool = %d\n", number, floatNumber, character, boolValue);
 }
 
-//Take jak zmienne ale z  bool
+//Normal
 void comparing() {
     int a = 5;
     int b = 10;
