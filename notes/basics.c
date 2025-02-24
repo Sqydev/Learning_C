@@ -174,8 +174,12 @@ void MemoryAdress() {
 
 //!!!!!!!!!!!!
 void Pointers() {
+
+    //& is a adress operator, It's for getting an adress from a VARIEBLE
+
     int age = 17; //makes int age
     int *pAge = &age; //makes pointer thats stores adress of age
+    void *pAge2 = &age; //makes the pointer that doesent care if var is int or char. You can just give this ponter var of eny type
 
     printf("%d\n", age); //Outs value of age (17)
     printf("%p\n", &age); //Outs adres of age
