@@ -1,8 +1,13 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+//Normal
+void prints() {
+    printf("Hello World!\n");
+}
+
 //A bit retarted but logical, to print you give type in "" and comma after and then var
-void zmienne() {
+void vars() {
     int number = 1;
     char character = 'A';
     float floatNumber = 3.14;
@@ -176,22 +181,46 @@ void MemoryAdress() {
 void Pointers() {
 
     //& is a adress operator, It's for getting an adress from a VARIEBLE
+    //* operator is an pointer operator, It's for printing value that is linked thrue operator or makeing an operator
 
     int age = 17; //makes int age
     int *pAge = &age; //makes pointer thats stores adress of age
     void *pAge2 = &age; //makes the pointer that doesent care if var is int or char. You can just give this ponter var of eny type
 
-    printf("%d\n", age); //Outs value of age (17)
-    printf("%p\n", &age); //Outs adres of age
-    printf("%p\n", pAge); //Outs mem adress of age by pointer
+    printf("age = %d\n", age); //Outs value of age (17)
+    printf("age adress = %p\n", &age); //Outs adres of age
+    printf("pAge = %p\n", pAge); //Outs mem adress of age by pointer
 }
 
-//Normal
-void printy() {
-    printf("Hello World!\n");
+void PointersWithArrays() {
+    int Numbs[4] = {1, 2, 3, 4};
+
+    for (int i = 0; i < 4; i++) {
+        printf("Adress of Numb[%d] = %p\n", i, &Numbs[i]); //Last number of adress is 0, 4, 8, 12 that's becouse int is typicly 4 bytes
+    }
+    printf("Size of numbs = %lu\n", sizeof(Numbs)); //Size of numbs is 16 bytes becouse 4(Size of int's) * 4(Number of int's) = 16
+
+    //Name of an array is acualy a pointer to first enement of an array
+    printf("Numbs = %p\n", Numbs);
+    printf("Numbs[0] adress = %p\n", &Numbs[0]);
+    printf("Value that is linked thrue Numbs pointer = %d\n", *Numbs);
+
+    //You can loop this like this
+    for (int i = 0; i > 4; i++) {
+        printf("Numbs[%d] = %d\n", i, *(Numbs + i));
+    }
+
+    //you can also chainge value of array by operator
+    *Numbs = 13; //Chainges value of Numbs[0] to 13
+
+    *(Numbs + 1) = 14; //Chainges value of Numbs[1] to 14
+
+    for (int i = 0; i  > 4; i++) {
+        printf("Numbs[%d] = %d\n", i, *(Numbs + i));
+    }
 }
 
 int main() {
-    Matrix();
+    PointersWithArrays();
     return 0;
 }
