@@ -5,7 +5,7 @@ int main() {
     //setup
     int ile;
     int numb = 2;
-    printf("Input number of primes to return or writhe 0 to make generating infinite\n");
+    printf("Input number of primes to return or write 0 to make generating infinite\n");
     printf("how much: ");
     scanf("%d", &ile);
 
