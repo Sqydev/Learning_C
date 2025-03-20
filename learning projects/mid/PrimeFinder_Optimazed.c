@@ -5,11 +5,12 @@ int main() {
     //setup
     int ile;
     int numb = 2;
+    printf("Input number of primes to return or writhe 0 to make generating infinite\n");
     printf("how much: ");
     scanf("%d", &ile);
 
     //main loop
-    for(int i = 0; i < ile; numb++){
+    for(int i = 0; (ile > 0) ? i < ile : i > -1; numb++){
         int is_prime = 1;
         //debug message
         //printf("| i = %d, numb = %d | ", i, numb);
@@ -26,6 +27,7 @@ int main() {
         if(is_prime == 1) {
             printf("| %d | ", numb);
             i++;
+            continue;
         }
     }
     printf("\n");
