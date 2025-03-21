@@ -1,5 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 const char PLAYER = 'X';
 const char COMP = 'O';
@@ -30,10 +32,25 @@ void MoveInput() {
         scanf("%d", &y);
         x--;
         y--;
-        Loop = (x < 0 || y < 0 || x > 2 || y > 2) ? true : false;
+        Loop = (x < 0 || y < 0 || x > 2 || y > 2 || Board[x][y] != ' ') ? true : false;
     }
 
     Board[x][y] = PLAYER;
+}
+
+void CompMove() {
+    bool Loop = true;
+    int x = 0;
+    int y = 0;
+
+    while(Loop == true) {
+        srand(time(0));
+        x = rand() % 3;
+        y = rand() % 3;
+        Loop = (Board[x][y] != ' ') ? true : false;
+    }
+
+    Board[x][y] = COMP;
 }
 
 int ScanFreeBoard() {
@@ -133,9 +150,9 @@ int main() {
         MoveInput();
         Print_Board();
         CheckWinner();
-        //CompMove();
-        //Print_Board();
-        //CheckWinner();
+        CompMove();
+        Print_Board();
+        CheckWinner();
     }
 
     return 0;
