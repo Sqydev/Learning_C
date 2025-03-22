@@ -35,6 +35,8 @@ void FILES() {
         printf("%s", myString);
     }
 
+    printf("\n");
+
     fclose(pfile); //close
 }
 
