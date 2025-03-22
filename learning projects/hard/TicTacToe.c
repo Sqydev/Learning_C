@@ -6,9 +6,24 @@
 const char PLAYER = 'X';
 const char COMP = 'O';
 bool Running = true;
+char Winner = ' ';
 char Board[3][3] = {{' ', ' ', ' '},
                     {' ', ' ', ' '},
                     {' ', ' ', ' '}};
+
+int ScanFreeBoard() {
+    int Free_Spaces = 9;
+
+    for(int i = 2; i > -1; i--) {
+        for(int j = 2; j > -1; j--) {
+            if (Board[j][i] != ' ') {
+                Free_Spaces--;
+            }
+        }
+    }
+
+    return Free_Spaces;
+}
 
 void Print_Board() {
     printf("     |     |     \n");
@@ -43,32 +58,18 @@ void CompMove() {
     int x = 0;
     int y = 0;
 
-    while(Loop == true) {
+    if(ScanFreeBoard() != 0 && Running == true) {
         srand(time(0));
-        x = rand() % 3;
-        y = rand() % 3;
-        Loop = (Board[x][y] != ' ') ? true : false;
-    }
-
-    Board[x][y] = COMP;
-}
-
-int ScanFreeBoard() {
-    int Free_Spaces = 9;
-
-    for(int i = 2; i > -1; i--) {
-        for(int j = 2; j > -1; j--) {
-            if (Board[j][i] != ' ') {
-                Free_Spaces--;
-            }
+        while(Loop == true) {
+            x = rand() % 3;
+            y = rand() % 3;
+            Loop = (Board[x][y] != ' ') ? true : false;
         }
+        Board[x][y] = COMP;
     }
-
-    return Free_Spaces;
 }
 
 void CheckWinner()  {
-    char Winner = ' ';
     //Player
 
     //Diagnal
@@ -144,7 +145,6 @@ void CheckWinner()  {
 }
 
 int main() {
-
     while (Running == true) {
         Print_Board();
         MoveInput();
